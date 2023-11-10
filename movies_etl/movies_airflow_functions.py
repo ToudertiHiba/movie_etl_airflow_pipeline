@@ -19,8 +19,11 @@ def count_number_urls():
     Returns:
         int: Number of URLs in the file.
     """
-    with open('./urls.txt', 'r') as file:
-        return len(file.readlines())
+    try:
+        with open('./urls.txt', 'r') as file:
+            return len(file.readlines())
+    except:
+        return 1
 
 def process_url(i, url):
     """
@@ -58,7 +61,7 @@ def generate_urls():
     """
     Generates URLs within a specific date range and writes them to 'urls.txt' file.
     """
-    urls = get_urls(start_date = datetime(1900, 1, 1), end_date  = datetime(1901, 1, 1))
+    urls = get_urls(start_date = datetime(1916, 1, 1), end_date  = datetime(1917, 1, 1))
     with open('./urls.txt', 'w') as f:
         f.writelines('\n'.join(urls))
 
